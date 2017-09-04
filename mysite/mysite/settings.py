@@ -6,9 +6,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '07s#p@ol!&7$et@@yh=q^r42qr74pjes!sosahjszt#g1yaqyz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 LOGIN_REDIRECT_URL = "/"
+
+ALLOWED_HOSTS = [
+    '35.160.7.166',
+    'jared-wallace.com',
+]
 
 ALLOWED_HOSTS = []
 
