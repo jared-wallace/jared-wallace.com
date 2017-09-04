@@ -15,8 +15,6 @@ ALLOWED_HOSTS = [
     'jared-wallace.com',
 ]
 
-ALLOWED_HOSTS = []
-
 SITE_ID = 1
 
 INSTALLED_APPS = (
@@ -77,7 +75,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        # 'HOST': os.environ['POSTGRES_PORT_5432_TCP_ADDR'],
         'HOST': 'postgres',
         'PASSWORD': 'postgres',
         'PORT': ''
