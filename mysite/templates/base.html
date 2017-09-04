@@ -63,11 +63,9 @@
                     <li><a href="{% url 'section' section_id="4" %}">Digital Logic</a></li>
                   </ul>
                 </li>
-                <li id="wallace-forums"><a href="http://forums-jaredwallace.rhcloud.com">Forums</a></li>
-                <li id="wallace-about"><a href="{% url 'about' %}">About</a></li>
                 <li id="wallace-noemi"><a href="{% url 'noemi' %}">Noemi</a></li>
+                <li id="wallace-about"><a href="{% url 'about' %}">About</a></li>
                 <li id="wallace-contact"><a href="{% url 'contact' %}">Contact</a></li>
-                <li id="wallace-calendar"><a href="{% url 'calendar_main' %}">Calendar</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
