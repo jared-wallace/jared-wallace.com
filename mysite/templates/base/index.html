@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <b>Latest from the BBC</b>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" id="feeddiv">
+                    <div class="item active">
+                        <div id="firstfeeddiv"></div>
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    window.onload=function(){document.getElementById("wallace-home").setAttribute("class", "active")};
+</script>
+<script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var url = "http://feeds.bbci.co.uk/news/world/rss.xml"
+        var feedcontainer=document.getElementById("feeddiv")
+        var firstfeedcontainer=document.getElementById("firstfeeddiv")
+        var rssoutput=""
+        var rssoutput1=""
+
+        feednami.setPublicApiKey('023daa9157f7f3a82232b840b1f26f2f68345041889d759994255944b7a8eae5')
+        feednami.load(url,function(result){
+            if(result.error) {
+                console.log(result.error);
+            } else {
+                var thefeeds = result.feed.entries;
+                rssoutput1 += "<a href='" + thefeeds[0].link + "'>" + thefeeds[0].title + "</a>"
+                rssoutput1 += "<p>" + thefeeds[0].summary + "</p>";
+                for (var i = 1; i < thefeeds.length; i++){
+                    rssoutput = "<a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a>"
+                    var div = document.createElement("div")
+                    div.className = "item"
+                    var a = document.createElement('a');
+                    var linktext = document.createTextNode(thefeeds[i].title);
+                    a.appendChild(linktext);
+                    a.title = thefeeds[i].title;
+                    a.href = thefeeds[i].link;
+                    div.appendChild(a);
+                    var p = document.createElement('p')
+                    var content = document.createTextNode(thefeeds[i].summary);
+                    p.appendChild(content)
+                    div.appendChild(p);
+                    feedcontainer.appendChild(div);
+                }
+                firstfeedcontainer.innerHTML=rssoutput1
+            }
+    });
+});
+</script>
+{% endblock script %}

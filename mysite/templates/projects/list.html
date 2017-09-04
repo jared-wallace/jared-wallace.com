@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h2>{{ type|title }}</h2>
+            <p>
+                {{ header_content }}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul class="nav nav-list">
+                <li class="nav-header">Projects</li>
+                <li><a href="/projects/index">Home</a></li>
+                {% if type == "personal" %}
+                    <li class="active"><a href="#">For personal use</a></li>
+                {% else %}
+                <li><a href="{% url 'list' type="personal" %}">For personal use</a></li>
+                {% endif %}
+                {% if type == "school" %}
+                <li class="active"><a href="#">For school</a></li>
+                {% else %}
+                <li><a href="{% url 'list' type="school" %}">For school</a></li>
+                {% endif %}
+                {% if type == "work" %}
+                <li class="active"><a href="#">For work</a></li>
+                {% else %}
+                <li><a href="{% url 'list' type="work" %}">For work</a></li>
+                {% endif %}
+                <li class="nav-header">Programming related links</li>
+                <li><a href="http://www.mindprod.com/jgloss/unmain.html">How to write terrible code</a></li>
+                <li><a href="http://vim.spf13.com/">SPF13(Vim plugin package)</a></li>
+                <li><a href="http://xkcd.com/">XKCD</a></li>
+                <li><a href="http://stackoverflow.com/">Stack Overflow</a></li>
+                <li><a href="http://www.cplusplus.com/">Cplusplus</a></li>
+                <li><a href="https://docs.python.org/2/">Python 2.* Reference</a></li>
+                <li><a href="https://www.djangoproject.com/">Django</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <dl>
+            {% for project in Projects %}
+            <dt>{{ project.title }}</dt>
+            <dd>{{ project.shortdescription }} <a href="{% url 'detail' project.id %}"> Details</a></dd>
+            {% endfor %}
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-projects").setAttribute("class", "active")};
+</script>
+{% endblock script %}

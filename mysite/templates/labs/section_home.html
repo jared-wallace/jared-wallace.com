@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><a href=""#"">{{ class_section.name }}</a><small> - Section {{ class_section.section_number }}</h2>
+            <p>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-sm-4 col-xs-12">
+            <ul class="nav nav-list">
+                <li class="nav-header">Helpful Links(TxState)</li>
+                {% if class_section.syllabus %}
+                <li><a href="{{ class_section.syllabus.url }}">Syllabus</a></li>
+                {% endif %}
+                {% if class_section.style %}
+                <li><a href="{{ class_section.style.url }}">Style Guide</a></li>
+                {% endif %}
+                <li><a href="{% url 'section_schedule' section_id=class_section.id %}">Schedule</a></li>
+                <li><a href="http://hwupload.cs.txstate.edu">Homework Upload</a></li>
+                <li class="nav-header">Helpful Links(General)</li>
+                {% for link in links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-10 col-sm-8 col-xs-12">
+            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <p>{{ first_quote.text }}</p>
+                                    <small>{{ first_quote.author }}</small>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                    {% for quote in quotes %}
+                    <div class="item">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <p>{{ quote.text }}</p>
+                                    <small>{{ quote.author }}</small>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <p>
+                {{ class_section.description }}
+            </p>
+            <p>Meets on {{ class_section.day }} at {{ class_section.time }} in room {{ class_section.room }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-labs").setAttribute("class", "active")};
+</script>
+<script>
+$(document).ready(function() {
+    //Set the carousel options
+    $('#quote-carousel').carousel({
+        pause: true,
+        interval: 7000,
+        });
+    });
+</script>
+{% endblock script %}

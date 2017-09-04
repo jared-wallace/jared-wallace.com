@@ -1,0 +1,3 @@
+Someone has requested an account on {{ site }} with this email. If this person
+was you, please click the following link to register
+http://{{ site }}/accounts/activate/{{ activation_key }}

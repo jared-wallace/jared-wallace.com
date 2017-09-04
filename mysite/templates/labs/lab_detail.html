@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><a href="#">Lab {{ lab.number }}: {{ lab.title|title }}</a></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <ul class="nav nav-list">
+                <li class="nav-header">{{ section.name }}</li>
+                <li><a href="{% url 'section' section_id=section.id %}">Home</a></li>
+                <li><a href="{% url 'section_schedule' section_id=section.id %}">Schedule</a></li>
+                <li class="nav-header">Links</li>
+                <li><a href="http://hwupload.cs.txstate.edu">Homework Upload</a></li>
+                <li><a href="http://cs.txstate.edu">Department home page</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <p>
+                {{ lab.description|linebreaks }}
+            </p>
+            <p>
+		{% if lab.labfile %}
+                <form action="{{ lab.labfile.url }}">
+                    <input type="submit" value="Download lab files" class="btn btn-success">
+                </form>
+		{% endif %}
+		{% if is_labstaff and lab.adminfile or lab.solution_visible %}
+                <form action="{{ lab.adminfile.url }}">
+                    <input type="submit" value="Download Solution" class="btn btn-success">
+                </form>
+		{% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-labs").setAttribute("class", "active")};
+</script>
+{% endblock script %}

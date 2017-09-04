@@ -1,0 +1,26 @@
+{% extends "boot_base.html" %}
+{% load staticfiles %}
+{% load url from future %}
+{% block content %}
+<div class="container">
+    <div class="row" id="about">
+            <p>Latest from the BBC</p>
+            <table class="table">
+                <tr>
+                    <td>
+                        <a id="TickerLinkBC6167713" href="javascript: ;"><b><span id="TickerTitleBC6167713"></span></b></a><span id="TickerSummaryBC6167713"></span>
+                    </td>
+                </tr>
+            </table>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-home").setAttribute("class", "active")};
+</script>
+    <script id="scr6167713" type="text/javascript"></script>
+    <script type="text/javascript"> /* <![CDATA[ */ 
+    setTimeout('document.getElementById(\'scr6167713\').src = (document.location.protocol == \'https:\' ? \'https\' : \'http\') + \'://www.poweringnews.com/ticker-js.aspx?feedurl=http%3A//newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml&changedelay=5&maxitems=-1&showsummary=1&objectid=6167713\'', 500);
+     /* ]]> */ </script>
+{% endblock script %}

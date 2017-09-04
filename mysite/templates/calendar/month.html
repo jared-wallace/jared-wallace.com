@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row row-centered">
+        <div class="col-centered">
+            <a href="{% url 'calendar_month' year month "prev" %}" class="btn btn-info" role="button">Prev</a>
+            <a href="{% url 'calendar_month' year month "next" %}" class="btn btn-info" role="button">Next</a>
+        </div>
+    </div>
+    <div class="row row-centered">
+        <div class="col-centered">
+            <h4>{{ mname }} {{ year }}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <div class="text-center">
+                        Mon
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Tues
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Wed
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Thurs
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Fri
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Sat
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Sun
+                    </div>
+                </td>
+            </tr>
+
+            {% for week in month_days %}
+            <tr>
+            {% for day, entries, current in week %}
+
+            <td
+                {% if day != 0 and current and not entries %}
+                    class="warning"
+                {% elif  day != 0 and entries %}
+                    class="danger"
+                {% endif %}>
+                <!-- Day number and entry snippets -->
+                {% if day != 0 %}
+                    <a href="{% url 'calendar_day' year month day %}">{{ day }}
+                    {% if entries %}
+                        {% for entry in entries %}
+                         {{ entry.title }}</a>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+                </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div class="row row-centered">
+        <div class="col-centered">
+            <a href="{% url 'calendar_main' year %}" class="btn btn-info" role="button">Back</a>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-calendar").setAttribute("class", "active")};
+</script>
+{% endblock script %}

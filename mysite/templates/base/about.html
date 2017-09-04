@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+                My name is Jared Wallace. I'm a 30 something husband, father of 4 girls, and
+                proud graduate of Texas State University. I majored in Computer Science with
+                a minor in Applied Mathematics. I'm currently employed by IBM as a software engineer. My
+                specific area of work is on the Sametime extended team. Prior to accepting employment
+                with IBM, I worked for the department of Computer Science at Texas State as undergraduate
+                head of infrastructure, where I won several awards for leadership and teaching. My day
+                to day duties included maintaining several servers and working on the new department website.
+                The website went live about a month after I graduated (more information is available under "work"
+                projects).
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a  href="{% static "img/wendys.jpg" %}" class="thumbnail">
+                <img src="{% static "img/wendys.jpg" %}" title="A night shot of the Wendy's where I used to work." >
+            </a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+                Most of my work history has been with the quick service industry. All in all I have
+                around ten years of experience in just about every different concept out there. I
+                last worked at a Wendy's run by Cedar Enterprises, where I endured just over four years.
+                As such companies go, they were certainly one of the most professional, and I greatly
+                enjoyed working under my supervisor Leon Cole. <!-- One of the coolest things I got to do
+                while I was there was customizing the Point Of Sale (POS) system. We used Panasonic 7800 terminals
+                similar to this <a href ={% static "img/7800.jpg" %}>one</a>. Cedar Enterprises used a "master"
+                template for the layouts on the home screens. Whenever we had a new promotion, or price change,
+                the IT department would push through updates to all the affected restaurants. This made
+                perfect sense from a business standpoint, as it greatly simplified the IT departments job.
+                Unfortunately, this led to more than a few problems and annoyances at the store level, as
+                we often had to contend with items on the screen that we did not sell. In addition, the
+                layout had obviously been designed by someone who had never worked a cash register. There
+                were certain buttons that were used hundred of times per day that were too small to hit with any
+                reliability. The flow of the menu pop ups was also sub-optimal. One day, sitting in the office,
+                I realized that the program to modify the layouts was on the back office computer, and I began to
+                experiment. -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-12">
+                I am slowly adjusting to the life of a regular professional employee, with weekends and holidays off,
+                and paid vacations to look forward to. It sometimes seems surreal to me, and I have to pinch myself
+                to remember that I am not living in a dream. I was once asked in an interview where I drew the motivation
+                to achieve such stellar grades while raising a family and working part time. My answer was that, quite
+                simply, I was running scared. Every single day, I felt that if I slacked off for one second, skipped one
+                class, procrastinated on one assignment, that this dream would come to a crashing halt. I truly believed
+                that this opportunity was the last chance I would ever have in my life to become the person I wanted to be.
+                <!-- I spent the next few weeks learning how the layout editor worked. I had to use intuition and trial
+                and error, as the manual for the program was nowhere to be found. Eventually, I would end up changing
+                around half of the layout, from button size, placement and color to the sequence of generated menus.
+                The end result was a marked improvement in order accuracy and speed. For example, on the kitchen screen
+                the system would color code certain things, to aid in comprehension. The base text would be white, and
+                other items could change color, like green for pickles or red for ketchup. By default, onions were
+                left white (just like the base text). This led to issues with cooks not recognizing the customer
+                had requested holding the onions. When I changed things around, I programmed it to display onions in
+                cyan, which greatly aided the cooks. While certainly a minor change in isolation, the combined effect
+                was much more profound. Ultimately, despite the obvious benefits of a per-store customization, the IT
+                department shut me down when they discovered what I had done. (Database integrity took precedence over my changes)
+                The lead IT guy, Tony McAllister, sent me a very nice email that told me very politely to quit screwing
+                around with the POS system. He advised me to channel my interests in technology towards a college degree,
+                and a few years later I took him up on his challenge. -->
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a  href="{% static "img/brother.jpg" %}" class="thumbnail">
+                <img src="{% static "img/brother.jpg" %}" title="My brother and his family at his office">
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a  href="{% static "img/family.jpg" %}" class="thumbnail">
+                <img src="{% static "img/family.jpg" %}" title="My family, circa 2009">
+            </a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            My family was the driving force behind my efforts in college. There is absolutely no way I'd have been able
+            to accomplish anything there without their support. My wife put up with my crazy hours and 
+            mountains of homework for 5 years, and never complained at all the housework I didn't do. <!-- My
+            children still think it's cool that their father is in school like them, even though that means my
+            time with them is diminished. I'm greatly looking forward to being able to take real vacations with them
+            after I leave school. -->
+            My kids are finally getting used to having me around, now that schoolwork has no claim on my time.
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-about").setAttribute("class", "active")};
+</script>
+{% endblock script %}

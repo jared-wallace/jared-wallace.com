@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><a href=""#"">Projects</a></h2>
+            <p>
+            These are a few of the projects I've worked on over the last two years. Quite a few were written
+            while I was still in my introductory classes, so they tend to be a bit crude.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul class="nav nav-list">
+                <li class="nav-header">Projects</li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="{% url 'list' type="personal" %}">For personal use</a></li>
+                <li><a href="{% url 'list' type="school" %}">For school</a></li>
+                <li><a href="{% url 'list' type="work" %}">For work</a></li>
+                <li class="nav-header">Programming related links</li>
+                <li><a href="http://www.mindprod.com/jgloss/unmain.html">How to write terrible code</a></li>
+                <li><a href="http://vim.spf13.com/">SPF13(Vim plugin package)</a></li>
+                <li><a href="http://xkcd.com/">XKCD</a></li>
+                <li><a href="http://stackoverflow.com/">Stack Overflow</a></li>
+                <li><a href="http://www.cplusplus.com/">Cplusplus</a></li>
+                <li><a href="https://docs.python.org/2/">Python 2.* Reference</a></li>
+                <li><a href="https://www.djangoproject.com/">Django</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <h3>How did I start coding?</h3>
+            <p>
+            I started coding almost by accident. When I was around 9 years old, a friend of mine who attended the LBJ Science Academy tried to teach me C++ without a computer (we were on a camping trip), and starting with pointers. He confused the heck out of me, and for the next 20 odd years I figured I just wasn't cut out for programming. Fast forward to 2012, when I signed up for a "Programming for Engineers" course. Much to my surprise, the class was a breeze, and I really enjoyed it. Following in my brothers footsteps, I switched my major to Computer Science, and the rest is history (to flog a dead cliche).
+            </p>
+            <h3>What tools do I use?</h3>
+            <p>
+            I have done every bit of my programming, from the beginning, using the Vim text editor. I started using it on the recommendation of my brother,
+            and I've grown very attached to it. I use several plugins, based very loosely on SPF13 (link's on the left side of the page).
+            My vimrc is available on <a href="https://bitbucket.org/jared-wallace">BitBucket</a>. Combined with GDB as my debugger, I've never missed having
+            an Integrated Development Environment(IDE).
+            </p>
+            <p>I run a Ubuntu 17.04 at home, with Arch on my Pi, and Fedora 25
+            on my office laptop. Windows is fine for many people, and in fact I also run a couple of Windows 2012r2 VM's at work and Windows 10 on one of my kid's computers. However, when
+            it comes to coding and general purpose work I much prefer Linux.
+            </p>
+            <p>I use both <a href="https://bitbucket.org/jared-wallace/">BitBucket</a> and <a href="https://github.com/jared-wallace">Github</a> for version control, and I've been playing around with Jenkins for CI.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-projects").setAttribute("class", "active")};
+</script>
+{% endblock script %}

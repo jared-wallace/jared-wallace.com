@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load url from future %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row row-centered">
+        <div class="col-centered">
+            <a href="{% url 'calendar_main' year|add:'-3' %}" class="btn btn-info" role="button">Prev</a>
+            <a href="{% url 'calendar_main' year|add:'3' %}" class="btn btn-info" role="button">Next</a>
+        </div>
+    </div>
+    {% for year, months in years %}
+        <div class="row row-centered">
+            <div class="col-centered">
+                    <h4>{{ year }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tr>
+                    {% for month in months %}
+                        <td><a href="{% url 'calendar_month' year month.n %}">{{ month.name }}</a></td>
+                        {% if month.n == 6 %}
+                            </tr><tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-calendar").setAttribute("class", "active")};
+</script>
+{% endblock script %}

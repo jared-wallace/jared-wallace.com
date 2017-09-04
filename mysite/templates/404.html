@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>404<small>-Content not found</small></h2>
+            <p><a href="{% url 'contact' %}">Report this </a>if you reached this page legitimately.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-home").setAttribute("class", "active")};
+</script>
+    <script id="scr6167713" type="text/javascript"></script>
+    <script type="text/javascript"> /* <![CDATA[ */ 
+    setTimeout('document.getElementById(\'scr6167713\').src = (document.location.protocol == \'https:\' ? \'https\' : \'http\') + \'://www.poweringnews.com/ticker-js.aspx?feedurl=http%3A//newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml&changedelay=5&maxitems=-1&showsummary=1&objectid=6167713\'', 500);
+     /* ]]> */ </script>
+{% endblock script %}

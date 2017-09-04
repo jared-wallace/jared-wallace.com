@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2> {{ project.title }} </h2>
+            <p>Created For -
+                {% with class=project.classification %}
+                {% if class == "personal" %}
+                    Personal Use
+                {% elif class == "work" %}
+                    Work
+                {% else %}
+                    School
+                {% endif %}
+                {% endwith %}
+            </p>
+            <p>Created - {{ project.created_date }}</p>
+            {% if project.binaryfile %}
+            <p>Binary available - <a href="{{ project.binaryfile.url }}">Link</a></p>
+            {% endif %}
+            {% if project.sourcefile %}
+            <p>Source available - <a href="{{ project.sourcefile.url }}">Link</a></p>
+            {% endif %}
+            <p>Language Used -  {{ project.language }} </p>
+            <p> {{ project.fulldescription|safe }} </p>
+        </div>
+    </div>
+    <div class="row">
+        {% if images %}
+            {% for image in images %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a  href="{{ image.image.url }}" class="thumbnail">
+                <img src="{{ image.image.url }}" height="150" width="150">
+                </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-projects").setAttribute("class", "active")};
+</script>
+{% endblock script %}

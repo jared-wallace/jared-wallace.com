@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><a href=""#"">{{ section.name }}</a></h2>
+            <p>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Lab Number</th>
+                        <th>Lab Title</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for lab in labs %}
+                    <tr>
+                        <td>{{ lab.number }}</td>
+                        {% if lab.visible or is_labstaff %}
+                        <td><a href="{% url 'lab_detail' lab.id %}">{{ lab.title }}</a></td>
+                        {% else %}
+                        <td>{{ lab.title }}</td>
+                        {% endif %}
+                        <td>{{ lab.date }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-labs").setAttribute("class", "active")};
+</script>
+{% endblock script %}

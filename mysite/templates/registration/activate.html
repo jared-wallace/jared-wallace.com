@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>Oops</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>That activation code ({{ activation_key }} wasn't valid. Please
+            contact me for assistance.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-register").setAttribute("class", "active")};
+</script>
+{% endblock script %}

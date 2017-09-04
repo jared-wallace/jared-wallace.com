@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container" id="cool-background">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2><a href=""#"">Lab Homepage</a></h2>
+            <p>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <ul class="nav nav-list">
+                <li class="nav-header">Courses</li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="{% url 'section' section_id="4" %}">Digital Logic</a></li>
+                <li><a href="{% url 'section' section_id="3" %}">Embedded Systems Programming</a></li>
+                <li><a href="{% url 'section' section_id="1" %}">Foundations of Computer Science I(Honors)</a></li>
+                <li><a href="{% url 'section' section_id="2" %}">Foundations of Computer Science I</a></li>
+                <li class="nav-header">Helpful links</li>
+                <li><a href="http://www.mindprod.com/jgloss/unmain.html">Homework Upload</a></li>
+                <li><a href="http://cs.txstate.edu">Department home page</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <h3>Do I really have to use Eclipse/CodeBlocks?</h3>
+            <p>
+            No. In fact I highly encourage my students to at least explore using a basic text editor
+            to write their lab assignments. IDE's like Eclipse and CodeBlocks tend to obscure the actual
+            methods by which programs are written, compiled and run. In addition, as in most things
+            in life, simplicity is golden. Especially for the small programs we will be writing, a program
+            that 'gets out of the way' and lets you code quickly is best. See <a href="{% url 'projects_index' %}">
+            here</a> for some links to the editor and tools I use.
+            </p>
+            <h3>Windows or Linux?</h3>
+            <p>
+            It depends. For the work we do in lab, it's really personal preference. Having said that,
+            learning and becoming familiar with Linux can only broaden your career possibilities. For me,
+            the decision is easy; I greatly prefer Linux for most tasks, although Windows maintains an
+            edge in some scenarios (software compatibility and Active Directory come to mind). If you're
+            considering Linux for the first time, take a peek at <a href="http://linuxmint.com">Mint</a>.
+            It's user interface is similar to Windows, and it's based on the most broadly supported distribution.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+window.onload=function(){document.getElementById("wallace-labs").setAttribute("class", "active")};
+</script>
+{% endblock script %}
