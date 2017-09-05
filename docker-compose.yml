@@ -8,6 +8,7 @@ services:
           - django
       ports:
           - "80:80"
+          - "443:443"
 
   # This defines a service for the Django app
   django:
